@@ -10,7 +10,7 @@ CREATE TABLE professores (
 CREATE TABLE departamento (
     id int NOT NULL AUTO_INCREMENT,
     nome varchar(255),
-    chefe_id int NOT NULL,
+    chefe_id int,
     PRIMARY KEY (id),
     FOREIGN KEY (chefe_id) REFERENCES professores(id)
 );
