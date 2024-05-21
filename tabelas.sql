@@ -2,6 +2,7 @@ CREATE TABLE cursos (
 	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(255),
 	semestres int NOT NULL,
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE alunos (
