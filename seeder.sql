@@ -1,0 +1,42 @@
+INSERT INTO cursos (nome, semestres) VALUES ("Ciência da Computação", 8);
+INSERT INTO cursos (nome, semestres) VALUES ("Engenharia Elétrica", 10);
+INSERT INTO cursos (nome, semestres) VALUES ("Matemática", 8);
+INSERT INTO cursos (nome, semestres) VALUES ("Engenharia Mecânica", 11);
+
+INSERT INTO professores (nome, email, salario) VALUES ("Sr. Daniel Casa Grande", "hcavalcanti@example.com", 6970.88);
+INSERT INTO professores (nome, email, salario) VALUES ("Sr. Ravi Lucca da Conceição", "joao-miguel93@example.org", 3733.09);
+INSERT INTO professores (nome, email, salario) VALUES ("Maya Rocha", "jesuskaique@example.net", 10817.57);
+INSERT INTO professores (nome, email, salario) VALUES ("Sra. Caroline da Cunha", "hsampaio@example.com", 11835.41);
+INSERT INTO professores (nome, email, salario) VALUES ("Enzo Gabriel Cardoso", "maria-isisrocha@example.org", 6190.55);
+INSERT INTO professores (nome, email, salario) VALUES ("Davi Miguel Rocha", "macedomariah@example.com", 11485.65);
+INSERT INTO professores (nome, email, salario) VALUES ("João Vitor Nascimento", "brenoguerra@example.org", 10886.70);
+INSERT INTO professores (nome, email, salario) VALUES ("Anna Liz Duarte", "jfernandes@example.net", 11561.65);
+INSERT INTO professores (nome, email, salario) VALUES ("Carlos Eduardo Vargas", "ferreirasarah@example.org", 4477.87);
+INSERT INTO professores (nome, email, salario) VALUES ("Sr. Pedro Lucas Aragão", "ravi-luccaaragao@example.com", 4865.05);
+INSERT INTO professores (nome, email, salario) VALUES ("Matteo Fogaça", "esampaio@example.net", 3032.48);
+
+INSERT INTO departamentos (nome, chefe_departamento, curso) VALUES ("Departamento Ciência da Computação", 7, 1);
+INSERT INTO departamentos (nome, chefe_departamento, curso) VALUES ("Departamento Engenharia Elétrica", 3, 2);
+INSERT INTO departamentos (nome, chefe_departamento, curso) VALUES ("Departamento Matemática", 8, 3);
+INSERT INTO departamentos (nome, chefe_departamento, curso) VALUES ("Departamento Engenharia Mecânica", 1, 4);
+
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Camila Moura", "09.391.521-9", 2, "sophiasales@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Sophia Macedo", "40.163.367-8", 2, "isaque37@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Erick Fernandes", "28.424.361-1", 3, "vitor-gabriel85@example.net");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Davi da Luz", "91.659.636-1", 2, "trocha@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Isabelly Silva", "95.317.570-4", 2, "albuquerqueagatha@example.net");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Vinicius Pastor", "13.142.733-1", 1, "oduarte@example.net");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Srta. Mariana Cavalcanti", "72.843.480-9", 1, "castroerick@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Kaique Câmara", "49.287.556-0", 4, "mendesasafe@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Sra. Cecilia Vasconcelos", "31.516.578-0", 4, "emanuellyduarte@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Matheus Freitas", "98.386.074-8", 3, "evelyncorreia@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Yasmin Aparecida", "95.866.956-7", 4, "isaac84@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Sr. Enrico Garcia", "32.132.564-5", 3, "brunacavalcante@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Dr. Cauã Garcia", "65.085.914-9", 1, "pimentamatheus@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Benicio Macedo", "60.749.807-4", 4, "luiz-fernando06@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Isadora Alves", "76.510.316-6", 4, "calebe30@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Levi Pastor", "03.731.201-1", 3, "mendoncaluigi@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Maria Sophia Borges", "73.267.090-0", 3, "beniciocavalcanti@example.com");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Clarice Moreira", "04.477.340-7", 2, "duartekaique@example.org");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Isabel Teixeira", "52.019.913-6", 2, "kamilly96@example.net");
+INSERT INTO alunos (nome, ra, curso, email) VALUES ("Sr. Renan Montenegro", "93.665.163-1", 3, "ana-laura13@example.org");
