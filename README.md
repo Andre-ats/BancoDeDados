@@ -1,5 +1,10 @@
 # Projeto Banco de Dados
 
+## Geração de arquivo .sql
+
+### Instalção de dependências
+`pip install Faker`
+
 ## Integrantes do Grupo
 
 | Nome  | RA |
