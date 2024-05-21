@@ -17,8 +17,6 @@ CREATE TABLE alunos (
 	ra varchar(15),
 	curso int NOT NULL,
 	email varchar(255),
-	username varchar(255),
-	senha varchar(255),
 	PRIMARY KEY (id),
 	FOREIGN KEY (curso) REFERENCES cursos(id)
 );
@@ -27,9 +25,7 @@ CREATE TABLE professores (
 	id int NOT NULL AUTO_INCREMENT,
 	nome varchar(255),
 	email varchar(255),
-	username varchar(255),
 	salario decimal(15,2),
-	senha varchar(255),
 	PRIMARY KEY (id)
 );
 
