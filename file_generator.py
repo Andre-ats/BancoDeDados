@@ -13,11 +13,21 @@ class Professor:
     def __init__(self, nome, email, salario, departamento_id):
         self.nome = nome
         self.email = email
-        self.salario = salario,
+        self.salario = salario
         self.departamento_id = departamento_id
 
     def create(self):
         return f"INSERT INTO professores (nome, email, salario, departamento_id) VALUES (\"{self.nome}\", \"{self.email}\", {self.salario:.2f}, {self.departamento_id});\n"
+
+class Ministra:
+    def __init__(self, disciplina_id, professor_id, semestre, ano):
+        self.disciplina_id = disciplina_id
+        self.professor_id = professor_id
+        self.semestre = semestre
+        self.ano = ano
+
+    def create(self):
+        return f"INSERT INTO disciplinas_ministradas (professor_id, disciplina_id, semestre, ano) VALUES ({self.professor_id}, {self.disciplina_id}, {self.semestre}, {self.ano});\n"
 
 class Departamento:
     def __init__(self, nome, chefe_departamento):
@@ -43,6 +53,26 @@ class Aluno:
     def create(self):
         return f"INSERT INTO alunos (nome, email) VALUES (\"{self.nome}\", \"{self.email}\");\n"
 
+class Cursou:
+    def __init__(self, aluno_id, disciplina_id, semestre, ano, nota):
+        self.aluno_id = aluno_id
+        self.disciplina_id = disciplina_id
+        self.semestre = semestre
+        self.ano = ano
+        self.nota = nota
+
+    def create(self):
+        return f"INSERT INTO alunos_cursou (aluno_id, disciplina_id, semestre, ano, nota) VALUES ({self.aluno_id}, {self.disciplina_id}, {self.semestre}, {self.ano}, {self.nota:.2f});\n"
+
+class Tcc:
+    def __init__(self, aluno_id, orientador_id, grupo):
+        self.aluno_id = aluno_id
+        self.orientador_id = orientador_id
+        self.grupo = grupo
+
+    def create(self):
+        return f"INSERT INTO alunos_tcc (aluno_id, orientador_id, grupo) VALUES ({self.aluno_id}, {self.orientador_id}, {self.grupo});\n"
+
 fake = Faker(['pt_BR'])
 
 cursos = [
@@ -53,17 +83,15 @@ cursos = [
 ]
 
 departamentos = [
-    Departamento("Departamento Ciência da Computação", None),
-    Departamento("Departamento Engenharia Elétrica", None),
-    Departamento("Departamento Matemática", None),
-    Departamento("Departamento Engenharia Mecânica", None),
+    Departamento("Departamento Ciência da Computação", "null"),
+    Departamento("Departamento Engenharia Elétrica", "null"),
+    Departamento("Departamento Matemática", "null"),
+    Departamento("Departamento Engenharia Mecânica", "null"),
 ]
 
-professores = [Professor(fake.name(), fake.email(), random.uniform(3000.00, 12000.00), random.uniform(1, 4))]
-for i in range(10):
-    professores.append(Professor(fake.name(), fake.email(), random.uniform(3000.00, 12000.00), random.uniform(1, 4)))
+professores = [Professor(fake.name(), fake.email(), random.uniform(3000.00, 12000.00), random.randint(1, 4)) for _ in range(16)]
 
-alunos = [Aluno(fake.name(), random.randint(1, 4), fake.email()) for _ in range(20)]
+alunos = [Aluno(fake.name(), fake.email()) for _ in range(20)]
 
 disciplinas = [
     Disciplina("Banco de Dados", 1),
@@ -82,6 +110,28 @@ disciplinas = [
     Disciplina("Calculo II", 3),
     Disciplina("Calculo III", 3),
 ]
+
+ministram = [Ministra(i, i, random.randint(1, 2), random.randint(2000, 2024)) for i in range(1, 16)]
+
+cursaram = [Cursou(i, random.randint(1, 15), random.randint(1, 2), random.randint(2000, 2024), random.uniform(0.0, 10.0)) for i in range(1, 21)]
+for i in range(0, 20):
+    aluno = random.randint(1, 21)
+    disciplina = random.randint(1, 15)
+
+    if aluno == cursaram[i].aluno_id and disciplina == cursaram[i].disciplina_id:
+        continue
+
+    cursaram.append(Cursou(aluno, disciplina, random.randint(1, 2), random.randint(2000, 2024), random.uniform(0.0, 10.0)))
+
+tccs = []
+professor = 1
+for i in range(1, 21):
+    tccs.append(Tcc(i, professor, random.randint(1, 5)))
+
+    if professor == 16:
+        professor = 0
+
+    professor += 1
 
 with open("./seeder.sql", "w", encoding='utf-8') as f:
     for curso in cursos:
@@ -106,3 +156,18 @@ with open("./seeder.sql", "w", encoding='utf-8') as f:
 
     for disciplina in disciplinas:
         f.write(disciplina.create())
+
+    f.write("\n")
+
+    for ministra in ministram:
+        f.write(ministra.create())
+
+    f.write("\n")
+
+    for cursou in cursaram:
+        f.write(cursou.create())
+
+    f.write("\n")
+
+    for tcc in tccs:
+        f.write(tcc.create())
