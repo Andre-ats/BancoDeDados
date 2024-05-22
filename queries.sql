@@ -1,14 +1,15 @@
 /* histórico escolar de qualquer aluno, retornando o código e nome da disciplina, semestre e ano que a disciplina foi cursada e nota final */
-SELECT alunos_cursou.disciplina_id, disciplinas.nome, alunos_cursou.semestre, alunos_cursou.ano, alunos_cursou.nota
+SELECT alunos_cursou.disciplina_id AS disciplina_Id, disciplinas.nome, alunos_cursou.semestre, alunos_cursou.ano, alunos_cursou.nota
 FROM alunos_cursou
-INNER JOIN disciplinas ON alunos_cursou.disciplina_id = disciplinas.id
+         INNER JOIN disciplinas ON alunos_cursou.disciplina_id = disciplinas.id
 WHERE alunos_cursou.aluno_id = 1;
 
 /* histórico de disciplinas ministradas por qualquer professor, com semestre e ano */
-SELECT professores.nome, disciplinas.nome, disciplinas_ministradas.semestre, disciplinas_ministradas.ano
+SELECT professores.nome AS professor , disciplinas.nome AS disciplina,
+       disciplinas_ministradas.semestre AS semestre, disciplinas_ministradas.ano AS ano
 FROM disciplinas_ministradas
-INNER JOIN professores ON disciplinas_ministradas.professor_id = professores.id
-INNER JOIN disciplinas ON disciplinas_ministradas.disciplina_id = disciplinas.id;
+         INNER JOIN professores ON disciplinas_ministradas.professor_id  = professores.id
+         INNER JOIN disciplinas ON disciplinas_ministradas.disciplina_id = disciplinas.id;
 
 /* listar alunos que já se formaram (foram aprovados em todos os cursos de uma matriz curricular) em um determinado semestre de um ano */
 SELECT DISTINCT  alunos.nome AS formados
