@@ -37,6 +37,9 @@ class Departamento:
     def create(self):
         return f"INSERT INTO departamentos (nome, chefe_id) VALUES (\"{self.nome}\", {self.chefe_departamento});\n"
 
+    def set_boss(self, chefe_id, id):
+        return f"UPDATE departamentos SET chefe_id = {chefe_id} WHERE id = {id};\n"
+
 class Disciplina:
     def __init__(self, nome, curso_id):
         self.nome = nome
@@ -133,6 +136,16 @@ for i in range(1, 21):
 
     professor += 1
 
+def preenche_chefe(chefes: list):
+    chefe = random.randint(1, 17)
+
+    if chefe not in chefes:
+        chefes.append(chefe)
+    else:
+        preenche_chefe(chefes)
+
+    return chefes
+
 with open("./seeder.sql", "w", encoding='utf-8') as f:
     for curso in cursos:
         f.write(curso.create())
@@ -171,3 +184,12 @@ with open("./seeder.sql", "w", encoding='utf-8') as f:
 
     for tcc in tccs:
         f.write(tcc.create())
+
+    f.write("\n")
+
+    chefes = []
+    for i, departamento in enumerate(departamentos):
+        preenche_chefe(chefes)
+
+    for i, departamento in enumerate(departamentos):
+        f.write(departamento.set_boss(chefes[i], i + 1))
