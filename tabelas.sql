@@ -7,7 +7,7 @@ CREATE TABLE professores (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE departamento (
+CREATE TABLE departamentos (
     id int NOT NULL AUTO_INCREMENT,
     nome varchar(255),
     chefe_id int,
