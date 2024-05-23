@@ -7,7 +7,7 @@ class Curso:
         self.semestres = semestres
 
     def create(self):
-        return f"INSERT INTO cursos (nome, semestres) VALUES (\"{self.nome}\", {self.semestres});\n"
+        return f"INSERT INTO cursos (nome, semestres) VALUES (\'{self.nome}\', {self.semestres});\n"
 
 class Professor:
     def __init__(self, nome, email, salario, departamento_id):
@@ -17,7 +17,7 @@ class Professor:
         self.departamento_id = departamento_id
 
     def create(self):
-        return f"INSERT INTO professores (nome, email, salario, departamento_id) VALUES (\"{self.nome}\", \"{self.email}\", {self.salario:.2f}, {self.departamento_id});\n"
+        return f"INSERT INTO professores (nome, email, salario, departamento_id) VALUES (\'{self.nome}\', \'{self.email}\', {self.salario:.2f}, {self.departamento_id});\n"
 
 class Ministra:
     def __init__(self, disciplina_id, professor_id, semestre, ano):
@@ -35,7 +35,7 @@ class Departamento:
         self.chefe_departamento = chefe_departamento
 
     def create(self):
-        return f"INSERT INTO departamentos (nome, chefe_id) VALUES (\"{self.nome}\", {self.chefe_departamento});\n"
+        return f"INSERT INTO departamentos (nome, chefe_id) VALUES (\'{self.nome}\', {self.chefe_departamento});\n"
 
     def set_boss(self, chefe_id, id):
         return f"UPDATE departamentos SET chefe_id = {chefe_id} WHERE id = {id};\n"
@@ -46,7 +46,7 @@ class Disciplina:
         self.curso_id = curso_id
 
     def create(self):
-        return f"INSERT INTO disciplinas (nome, curso_id) VALUES (\"{self.nome}\", {self.curso_id});\n"
+        return f"INSERT INTO disciplinas (nome, curso_id) VALUES (\'{self.nome}\', {self.curso_id});\n"
 
 class Aluno:
     def __init__(self, nome, email):
@@ -54,7 +54,7 @@ class Aluno:
         self.email = email
 
     def create(self):
-        return f"INSERT INTO alunos (nome, email) VALUES (\"{self.nome}\", \"{self.email}\");\n"
+        return f"INSERT INTO alunos (nome, email) VALUES (\'{self.nome}\', \'{self.email}\');\n"
 
 class Cursou:
     def __init__(self, aluno_id, disciplina_id, semestre, ano, nota):
@@ -79,17 +79,17 @@ class Tcc:
 fake = Faker(['pt_BR'])
 
 cursos = [
-    Curso("Ciência da Computação", 8),
-    Curso("Engenharia Elétrica", 10),
-    Curso("Matemática", 8),
-    Curso("Engenharia Mecânica", 11),
+    Curso('Ciência da Computação', 8),
+    Curso('Engenharia Elétrica', 10),
+    Curso('Matemática', 8),
+    Curso('Engenharia Mecânica', 11),
 ]
 
 departamentos = [
-    Departamento("Departamento Ciência da Computação", "null"),
-    Departamento("Departamento Engenharia Elétrica", "null"),
-    Departamento("Departamento Matemática", "null"),
-    Departamento("Departamento Engenharia Mecânica", "null"),
+    Departamento('Departamento Ciência da Computação', 'null'),
+    Departamento('Departamento Engenharia Elétrica', 'null'),
+    Departamento('Departamento Matemática', "null"),
+    Departamento('Departamento Engenharia Mecânica', 'null'),
 ]
 
 professores = [Professor(fake.name(), fake.email(), random.uniform(3000.00, 12000.00), random.randint(1, 4)) for _ in range(16)]
@@ -97,21 +97,21 @@ professores = [Professor(fake.name(), fake.email(), random.uniform(3000.00, 1200
 alunos = [Aluno(fake.name(), fake.email()) for _ in range(20)]
 
 disciplinas = [
-    Disciplina("Banco de Dados", 1),
-    Disciplina("Física II", 4),
-    Disciplina("Mecânica dos Fluidos", 4),
-    Disciplina("Física I", 4),
-    Disciplina("Computação Movel", 1),
-    Disciplina("Geometria Analitica", 3),
-    Disciplina("Sistemas Digitais", 2),
-    Disciplina("Redes", 2),
-    Disciplina("Calculo I", 3),
-    Disciplina("Engenharia de Software", 1),
-    Disciplina("Engenheinharia de Tomadas", 2),
-    Disciplina("Desenvolvimento WEB", 1),
-    Disciplina("Sistemas Digitais II", 2),
-    Disciplina("Calculo II", 3),
-    Disciplina("Calculo III", 3),
+    Disciplina('Banco de Dados', 1),
+    Disciplina('ísica II', 4),
+    Disciplina('Mecânica dos Fluidos', 4),
+    Disciplina('Física I', 4),
+    Disciplina('Computação Movel', 1),
+    Disciplina('Geometria Analitica', 3),
+    Disciplina('Sistemas Digitais', 2),
+    Disciplina('Redes', 2),
+    Disciplina('Calculo I', 3),
+    Disciplina('Engenharia de Software', 1),
+    Disciplina('Engenheinharia de Tomadas', 2),
+    Disciplina('Desenvolvimento WEB', 1),
+    Disciplina('Sistemas Digitais II', 2),
+    Disciplina('Calculo II', 3),
+    Disciplina('Calculo III', 3),
 ]
 
 ministram = [Ministra(i, i, random.randint(1, 2), random.randint(2000, 2024)) for i in range(1, 16)]
