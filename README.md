@@ -2,6 +2,10 @@
 
 ![Diagrama Relacional](https://github.com/Andre-ats/BancoDeDados/blob/df8fd47dd0167cb60f2bdf60ac1cedd36379bbb0/diagrama_relacional.drawio.png)
 
+### Criação das tabelas
+
+Para as tabelas serem criadas, basta criar um banco de dados e executar o script `tabelas.sql` que se encontra neste repositório.
+
 ## Geração de arquivo .sql
 O arquivo `file_generator.py` é utlizado para gerar um arquivo `sql` de inserção de dados fictícios no banco.
 
@@ -9,10 +13,6 @@ O arquivo `file_generator.py` é utlizado para gerar um arquivo `sql` de inserç
 O script utiliza uma biblioteca externa para geração de dados ficticios 
 
 `pip install Faker`
-
-### Criação das tabelas
-
-Para as tabelas serem criadas, basta criar um banco de dados e executar o script `tabelas.sql` que se encontra neste repositório.
 
 ### Execeucção do script
 Dentro da pasta onde o script está localizado, você deve rodar o mesmo utilizando a seguinte linha de comando:
