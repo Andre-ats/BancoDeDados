@@ -1,6 +1,6 @@
 # Projeto Banco de Dados
 
-![Diagrama Relacional]([https://github.com/Andre-ats/BancoDeDados/blob/f43df09c85caffe4290e30f279a8010981244f24/diagrama_relacional.png](https://github.com/Andre-ats/BancoDeDados/blob/78fbfe2cc1f407c8fbad0f829533b8fe2bfd0054/diagrama_relacional.drawio.png))
+![Diagrama Relacional](https://github.com/Andre-ats/BancoDeDados/blob/df8fd47dd0167cb60f2bdf60ac1cedd36379bbb0/diagrama_relacional.drawio.png)
 
 ## Geração de arquivo .sql
 O arquivo `file_generator.py` é utlizado para gerar um arquivo `sql` de inserção de fictícios dados no banco.
