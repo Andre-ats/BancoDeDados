@@ -98,7 +98,7 @@ alunos = [Aluno(fake.name(), fake.email()) for _ in range(20)]
 
 disciplinas = [
     Disciplina('Banco de Dados', 1),
-    Disciplina('ísica II', 4),
+    Disciplina('Física II', 4),
     Disciplina('Mecânica dos Fluidos', 4),
     Disciplina('Física I', 4),
     Disciplina('Computação Movel', 1),
